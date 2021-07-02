@@ -34,10 +34,10 @@ function setup() {
   roof = new Roof(400, 200, 500, 60);
 
   bob1 = new Bob(200, 500);
-  bob2 = new Bob(300, 500);
-  bob3 = new Bob(400, 500);
-  bob4 = new Bob(500, 500);
-  bob5 = new Bob(600, 500);
+  bob2 = new Bob(240, 500);
+  bob3 = new Bob(280, 500);
+  bob4 = new Bob(320, 500);
+  bob5 = new Bob(360, 500);
 
   rope1 = new Rope(bob1.body, roof.body, -80, 0);
   rope2 = new Rope(bob2.body, roof.body, -40, 0);
@@ -67,4 +67,9 @@ function draw() {
   rope5.display(); 
 
   drawSprites();
+}
+function keyPressed(){
+  if (keyCode == UP_ARROW) {
+    Matter.Body.applyForce(bob1.body,bob1.body.position, {x:-200,y:-195});
+  }
 }

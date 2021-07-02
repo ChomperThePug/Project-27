@@ -1,29 +1,29 @@
 class Bob {
   constructor(x, y) {
     var options = {
-      'density': 1.2,
-      'friction': 1.0,
-      'restitution': 0.5
+      'density': 0.7,
+      'friction': 0,
+      'restitution': 1
     };
     this.r = 40;
     this.x = x;
     this.y = y;
-    this.body = Bodies.circle(x, y, this.r, options);
+    this.body = Bodies.circle(x, y, this.r/2, options);
     World.add(world, this.body);
   };
   display() {
     var pos = this.body.position;
-    var angle = this.body.angle;
+    //var angle = this.body.angle;
 
     push();
-    //translate(pos.x, pos.y);
-    rotate(angle);
+    //rotate(angle);
     translate(pos.x, pos.y);
     strokeWeight(3);
     stroke('white')
     fill('orange')
-    ellipseMode(RADIUS);
-    ellipse(this.x, this.y, this.r);
+    //ellipseMode(RADIUS);
+    rectMode(CENTER);
+    ellipse(0, 0, this.r, this.r);
     pop();
   };
 };
